@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full rounded overflow-hidden shadow-lg mb-4 ">
+  <div class="w-full rounded overflow-hidden shadow-lg mb-4 " @click="changeRouter(product.id)">
     <img class="w-full h-[186px]" :src="product.image" :alt="product.category" />
     <div class="px-6 py-4">
       <div class="font-bold text-xl mb-2 truncate">{{ product.title }}</div>
@@ -31,10 +31,20 @@
 </template>
 
 <script>
+import { useRouter } from 'vue-router';
 export default {
   name: "ProductComponent",
   props: {
     product: {},
   },
+  setup() {
+
+    const router = useRouter()
+    const changeRouter = (id) => {
+      router.push('/product/' + id)
+    }
+
+    return { changeRouter }
+  }
 };
 </script>

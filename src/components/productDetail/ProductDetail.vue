@@ -1,6 +1,7 @@
 <template>
-  <div class="border border-gray-200 rounded-lg">
-    <div class="w-full max-w-2xl bg-white  shadow mb-10 flex flex-wrap wrap">
+  <div class="flex justify-center items-center">
+    <div
+      class=" max-w-[70%] justify-center items-center bg-white shadow mb-10 flex flex-wrap wrap border border-gray-200 rounded-lg">
       <span class="w-[40%]">
         <img class="p-8 rounded-t-lg" :src="product.image" alt="product image" />
       </span>
@@ -33,12 +34,14 @@
             Categoria: {{ product.category }}
           </span>
         </div>
-        <div class="flex items-center justify-between">
+        <div class="flex items-center justify-between flex-wrap wrap">
           <span class="text-3xl font-bold text-gray-900 dark:text-white">R${{ product.price }}</span>
-          <input placeholder="Quantidade" type="number" class="w-36 border  flex items-center justify-center text-center"/>
+          <input placeholder="Quantidade" type="number"
+            class="w-36 border mb-4 mt-2 flex items-center justify-center text-center" @change="addQuantity()" />
           <button href="#" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 
-          ">Add
-            to cart</button>
+          " @click="addProduct(product, quantity)">
+            Adicionar ao Carrinho
+          </button>
         </div>
       </div>
     </div>
@@ -47,12 +50,23 @@
 </template>
 
 <script>
+import { inject, ref } from '@vue/runtime-core';
+
+
 
 export default {
   name: "ProductDetailComponent",
   props: {
-    product: {},
+    product: {}
   },
+  setup() {
+    const quantity = ref(0)
+    const addProduct = inject('addCart')
+    const addQuantity = () => {
 
+      quantity.value = event.target.value
+    }
+    return { addProduct, addQuantity, quantity }
+  }
 };
 </script>

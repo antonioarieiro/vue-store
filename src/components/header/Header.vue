@@ -19,7 +19,9 @@
         </div>
         <div class="order-2 flex-shrink-0 sm:order-3 sm:ml-3">
           <button type="button"
-            class="-mr-1 flex rounded-md p-2 hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-white sm:-mr-2">
+            class="-mr-1 flex rounded-md p-2 hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-white sm:-mr-2"
+            @click="showCart(show)"
+            >
             <span
               class="material-icons md-36 text-white hover:cursor-pointer hover:text-yellow-300">shopping_cart</span>
           </button>
@@ -35,6 +37,10 @@ export default {
   name: "HeaderComponent",
   components: {
     CategoriesComponent,
+  },
+
+  props: {
+    showCart: Function
   },
 };
 </script>

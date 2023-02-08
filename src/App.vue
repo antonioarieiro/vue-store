@@ -1,14 +1,16 @@
 <template>
   <HeaderComponent></HeaderComponent>
-  <h1>Fake Store</h1>
+  <HomePage></HomePage>
 </template>
 
 <script>
-import HeaderComponent from './components/header/Header.vue';
-  export default {
-    name: 'App',
-    components: {
-      HeaderComponent
-  }
-  }
+import HeaderComponent from "./components/header/Header.vue";
+import HomePage from "./pages/Home/Home.vue";
+export default {
+  name: "App",
+  components: {
+    HeaderComponent,
+    HomePage,
+  },
+};
 </script>

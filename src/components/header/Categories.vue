@@ -1,7 +1,7 @@
 <template>
-    <div class="flex w-full items-center">
+    <div class="flex w-full items-center text-white">
         <div class=" ml-2" v-for="(categorie, i) in categories" :key="i">
-            <span class="hover:border-b-2 hover:cursor-pointer hover:text-indigo-500">
+            <span class="hover:border-b-2 hover:cursor-pointer hover:text-yellow-500">
                 {{categorie}}
             </span>
         </div>

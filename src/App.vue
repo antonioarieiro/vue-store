@@ -1,16 +1,23 @@
 <template>
-  <HeaderComponent></HeaderComponent>
-  <HomePage></HomePage>
+  <HeaderComponent/>
+  <router-view></router-view>
 </template>
 
 <script>
+import { ref } from "vue";
 import HeaderComponent from "./components/header/Header.vue";
-import HomePage from "./pages/Home/Home.vue";
 export default {
   name: "App",
   components: {
     HeaderComponent,
-    HomePage,
   },
+  setup() {
+    const currentCategory = ref([])
+
+    return {
+      currentCategory
+    }
+  }
+
 };
 </script>
